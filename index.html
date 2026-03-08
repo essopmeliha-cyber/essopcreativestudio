@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essop Creative Studio | Web & Graphic Design</title>
+  <meta name="description" content="Professional website design and graphic design services with fast turnaround, WhatsApp contact, and an easy online enquiry form." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1830;
+      --card: rgba(12, 24, 44, 0.78);
+      --text: #f5f7fb;
+      --muted: #c6d0df;
+      --line: rgba(255,255,255,0.12);
+      --blue: #44c2ff;
+      --peach: #ffb39b;
+      --glow: 0 0 30px rgba(68,194,255,.28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(68,194,255,.12), transparent 35%),
+        radial-gradient(circle at top right, rgba(255,179,155,.10), transparent 30%),
+        linear-gradient(180deg, #050b16 0%, var(--bg) 45%, #060c18 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1140px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 11, 22, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 18px;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .brand span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: .95rem;
+    }
+
+    .btn,
+    button {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 700;
+      transition: .25s ease;
+    }
+
+    .btn-primary,
+    button {
+      background: linear-gradient(90deg, var(--blue), var(--peach));
+      color: #08111f;
+      box-shadow: var(--glow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .btn:hover,
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .8rem;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 { line-height: 1.1; margin: 0 0 16px; }
+    h1 { font-size: clamp(2.3rem, 6vw, 5rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+    h3 { font-size: 1.2rem; }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--blue), var(--peach));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+              background-clip: text;
+              color: transparent;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .stat,
+    .card,
+    .service,
+    .about-box,
+    .contact-box,
+    .testimonial {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.25);
+    }
+
+    .stat {
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+      color: var(--peach);
+    }
+
+    .hero-image {
+      position: relative;
+      padding: 12px;
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(68,194,255,.26), rgba(255,179,155,.15));
+      box-shadow: var(--glow);
+    }
+
+    .hero-image img {
+      border-radius: 26px;
+      min-height: 380px;
+      object-fit: cover;
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .section-head {
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .services-grid,
+    .why-grid,
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service,
+    .testimonial {
+      padding: 26px;
+    }
+
+    .service p,
+    .testimonial p,
+    .about-box p,
+    .contact-box p,
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .service ul {
+      padding-left: 18px;
+      color: var(--muted);
+      margin: 14px 0 0;
+    }
+
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .about-box,
+    .contact-box {
+      padding: 28px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #aab8ca;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0 40px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 120;
+      background: #25D366;
+      color: #04110a;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      box-shadow: 0 14px 30px rgba(37,211,102,.35);
+    }
+
+    .small-note {
+      font-size: .88rem;
+      color: #aeb9ca;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .why-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">Essop <span>Creative Studio</span></a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="https://wa.me/27765252200?text=Hi%20Meliha%2C%20I%E2%80%99m%20interested%20in%20your%20design%20services." target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Website Designer • Graphic Designer</span>
+          <h1>Bold design. Fast delivery. <span class="gradient-text">Unbeatable turnaround.</span></h1>
+          <p class="lead">I create high-impact websites and professional graphic design that help brands look polished, trustworthy, and ready to win clients. From sleek business websites to promotional visuals, I deliver quality work with speed you can count on.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/27765252200?text=Hi%20Meliha%2C%20I%20want%20to%20build%20my%20website." target="_blank" rel="noopener">Get a Quote on WhatsApp</a>
+            <a class="btn btn-secondary" href="#contact">Send an Enquiry</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>24-hour</strong> turnaround on most design work</div>
+            <div class="stat"><strong>Clean & modern</strong> visuals that make businesses stand out</div>
+            <div class="stat"><strong>Web + graphics</strong> in one place for a smooth brand experience</div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="hero.jpg" alt="Futuristic designer portrait" />
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What I Offer</span>
+          <h2>Design services built to make your business <span class="gradient-text">look premium</span></h2>
+          <p class="lead">Whether you need a powerful online presence, branded graphics, or fast marketing content, I help you show up professionally and consistently.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service">
+            <h3>Website Design</h3>
+            <p>Modern, mobile-friendly websites designed to present your business clearly and turn visitors into paying clients.</p>
+            <ul>
+              <li>Landing pages and business websites</li>
+              <li>Service-focused layout and strong calls to action</li>
+              <li>WhatsApp integration for direct leads</li>
+            </ul>
+          </article>
+          <article class="service">
+            <h3>Graphic Design</h3>
+            <p>Professional visuals that elevate your brand across digital and print platforms.</p>
+            <ul>
+              <li>Flyers, posters, adverts, menus, and social media graphics</li>
+              <li>Branded promo content for campaigns and specials</li>
+              <li>Clean layouts that grab attention quickly</li>
+            </ul>
+          </article>
+          <article class="service">
+            <h3>Fast Turnaround</h3>
+            <p>My service is built for businesses that need quality work done fast without sacrificing a polished finish.</p>
+            <ul>
+              <li>Quick response communication</li>
+              <li>Reliable delivery on time</li>
+              <li>Ideal for urgent promotions and launches</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">About Me</span>
+          <h2>I help brands become more visible, more professional, and more <span class="gradient-text">memorable</span></h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-box">
+            <p>I’m a website designer and graphic designer focused on creating stylish, strategic visuals that help businesses stand out. I work with brands that want to look polished online, communicate clearly, and move quickly.</p>
+            <p style="margin-top:16px;">From websites to branded digital content, my goal is simple: create work that looks strong, feels modern, and gets attention. My turnaround time is one of my strongest advantages, making me a smart choice for businesses that need speed and quality together.</p>
+          </div>
+          <div class="about-box">
+            <h3>Why clients choose me</h3>
+            <div class="contact-list">
+              <div class="contact-item">Professional, modern visual style</div>
+              <div class="contact-item">Fast communication and dependable delivery</div>
+              <div class="contact-item">Web design and graphics from one creative partner</div>
+              <div class="contact-item">Design that helps businesses look client-ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Your Advantage</span>
+          <h2>Speed matters. Presentation matters. <span class="gradient-text">I deliver both.</span></h2>
+        </div>
+        <div class="why-grid">
+          <div class="testimonial">
+            <h3>Designed to convert</h3>
+            <p>Your brand should do more than look nice. It should build trust, attract attention, and encourage action.</p>
+          </div>
+          <div class="testimonial">
+            <h3>Built for busy businesses</h3>
+            <p>Need a website, promo, or urgent graphic done quickly? My workflow is built around fast delivery and clear results.</p>
+          </div>
+          <div class="testimonial">
+            <h3>Easy contact flow</h3>
+            <p>With direct WhatsApp contact and a simple email enquiry form, clients can reach you instantly from your site.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Let’s Work Together</span>
+          <h2>Ready to upgrade your brand’s online presence?</h2>
+          <p class="lead">Send a quick enquiry below or message me directly on WhatsApp for a faster response.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-box">
+            <h3>Direct Contact</h3>
+            <div class="contact-list">
+              <div class="contact-item"><strong>WhatsApp:</strong> <a href="https://wa.me/27765252200?text=Hi%20Meliha%2C%20I%20need%20design%20help." target="_blank" rel="noopener">076 525 2200</a></div>
+              <div class="contact-item"><strong>Email:</strong> <a href="mailto:essopmeliha@gmail.com">essopmeliha@gmail.com</a></div>
+              <div class="contact-item"><strong>Services:</strong> Website Design, Graphic Design, Promo Content</div>
+            </div>
+            <p class="small-note">Tip: Replace the phone number or email in the code if you want to use different contact details.</p>
+          </div>
+
+          <div class="contact-box">
+            <h3>Online Email Form</h3>
+            <form action="https://formsubmit.co/essopmeliha@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New website enquiry from Essop Creative Studio site" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="text" name="name" placeholder="Your name" required />
+              <input type="email" name="email" placeholder="Your email address" required />
+              <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Website Design</option>
+                <option>Graphic Design</option>
+                <option>Both Website and Graphic Design</option>
+              </select>
+              <textarea name="message" placeholder="Tell me what you need done" required></textarea>
+              <button type="submit">Send Enquiry</button>
+            </form>
+            <p class="small-note">This form uses FormSubmit. On first use, you may need to confirm your email address so submissions can be delivered correctly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Essop Creative Studio • Website Design & Graphic Design • Fast, polished, client-winning design.
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/27765252200?text=Hi%20Meliha%2C%20I%20saw%20your%20website%20and%20want%20more%20information." target="_blank" rel="noopener">WhatsApp Me</a>
+</body>
+</html>
